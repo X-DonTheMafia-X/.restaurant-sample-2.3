@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mayur Fine Nepali Cuisines</title>
+
+    <style>
+      /* GENERAL STYLE */
+      body {
+        height: 400vh;
+        font-family: "Times New Roman", Times, serif;
+        margin: 0;
+        background-color: rgba(245, 245, 220, 0.888);
+      }
+
+      /* HEADER SECTION */
+      .header {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-wrap: wrap; /* allows items to move on smaller screens */
+        gap: 20px;
+        padding: 10px;
+      }
+
+      #header_text {
+        margin: 0;
+      }
+
+      #header_text h1 {
+        font-size: 1.8rem;
+        margin-bottom: 5px;
+      }
+
+      #header_text p {
+        margin: 3px 0;
+        font-size: 1.1em;
+        font-style: italic;
+        color: rgb(39, 37, 37);
+      }
+
+      .logo img {
+        margin-top: 70px;
+        height: 100px;
+        border-radius: 100px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.553);
+      }
+
+      /* NAVIGATION BAR */
+      .navigation_bar {
+        z-index: 1;
+        position: fixed;
+        background-color: rgb(147, 24, 24);
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap; /* wrap buttons on smaller screens */
+        gap: 20px;
+        padding: 10px 0;
+        width: 100%;
+      }
+
+      .nav-buttons {
+        background: none;
+        border: 2px solid rgb(245, 245, 220);
+        border-radius: 5px;
+        height: 35px;
+        width: 150px;
+        font-size: medium;
+        color: rgb(245, 245, 220);
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .nav-buttons:hover,
+      .nav-buttons:active {
+        background-color: rgb(245, 245, 220);
+        color: rgb(147, 24, 24);
+        transform: scale(0.97);
+      }
+
+      #sloganid1 {
+        margin: 0;
+        font-size: 2rem;
+        opacity: 0; /* start invisible */
+        transform: translateX(-150px); /* start slightly left */
+        animation: slideIn 1.2s ease-out forwards;
+      }
+
+      #sloganid2 {
+        margin: 0;
+        font-size: 2rem;
+        opacity: 0; /* start invisible */
+        transform: translateX(150px); /* start slightly left */
+        animation: slideIn 1.5s ease-out forwards;
+      }
+
+      .summary {
+        position: relative;
+        z-index: -1;
+        margin: 10px 10px;
+        padding: 60px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        font-size: large;
+
+      }
+      .summary p {
+        font-weight: 500;
+        text-align: left;
+      }
+      .summary p span {
+        font-weight: 700;
+      }
+
+      /* Define the animation */
+      @keyframes slideIn {
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* MAIN IMAGE SECTION */
+      .main-section {
+        z-index: -1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        padding: 20px;
+      }
+
+      #mainImage {
+        width: 100%;
+        max-width: 700px;
+        border-radius: 30px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.553);
+        height: auto;
+      }
+
+      #slogan-poster {
+        position: absolute;
+        bottom: 20px;
+        text-shadow: 0 2px 4px black;
+        color: white;
+        padding: 10px 20px;
+        width: 100%;
+        max-width: 900px;
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        gap: 8px;
+      }
+      .hidden {
+        opacity: 0;
+        filter: blur(5px);
+        transform: translateX(-100%);
+        transition: all 1s ease-in-out;
+      }
+      .show {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateX(0);
+      }
+
+      /* RESPONSIVENESS */
+      @media (max-width: 1024px) {
+        #mainImage {
+          max-width: 700px;
+        }
+
+        #sloganid1 {
+          font-size: 1.3rem;
+        }
+        #sloganid2 {
+          font-size: 1.3rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header {
+          flex-direction: column;
+        }
+
+        .logo img {
+          height: 80px;
+        }
+
+        #header_text h1 {
+          font-size: 1.5rem;
+        }
+
+        .nav-buttons {
+          width: 100px;
+          font-size: 0.9rem;
+        }
+
+        #mainImage {
+          max-width: 500px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .nav-buttons {
+          width: 85px;
+          font-size: 0.8rem;
+        }
+
+        #header_text h1 {
+          font-size: 1.3rem;
+        }
+
+        #header_text p {
+          font-size: 1rem;
+        }
+
+        #mainImage {
+          max-width: 100%;
+        }
+
+        #sloganid1 #sloganid2 {
+          font-size: 1.1rem;
+        }
+        .navigation_bar {
+          gap: 10px;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVIGATION BAR -->
+    <div class="navigation_bar">
+      <a href="index.html"><button class="nav-buttons">Home</button></a>
+      <a href="./public/menu.html"><button class="nav-buttons">Menu</button></a>
+      <a href="./public/about us.html"
+        ><button class="nav-buttons">About Us</button></a
+      >
+      <a href="./public/find us.html"
+        ><button class="nav-buttons">Find Us</button></a
+      >
+    </div>
+
+    <!-- HEADER SECTION -->
+    <div class="header hidden">
+      <div class="logo">
+        <img draggable="false" src="../assets/mayurlogo.png" alt="logo" />
+      </div>
+
+      <div id="header_text">
+        <h1>MAYUR FINE NEPALI CUISINES</h1>
+        <p>Authentic Nepali Taste</p>
+        <p>Scarborough, ON, CANADA</p>
+      </div>
+
+
+    <!-- MAIN IMAGE -->
+    <div class="main-section hidden">
+      <img id="mainImage" src="../assets/headerphoto.jpg" alt="food image" />
+      <div id="slogan-poster">
+        <h1 id="sloganid1">Come hungry,</h1>
+        <h1 id="sloganid2">Leave happy</h1>
+      </div>
+    </div>
+    <div class="summary hidden">
+      <p>
+        At <span>Mayur Fine Nepali Restaurant</span> located in the heart of
+        Scarborough, we take pride in bringing the true taste of Nepal to your
+        table. Our menu features a wide variety of authentic Nepali dishes such
+        as momo, thakali set, thali, newari khaja, dal bhat, and many more—each
+        prepared with care, hygiene, and freshness in mind. We are committed to
+        serving healthy, flavorful meals that reflect the warmth and richness of
+        Nepali culture. Our friendly staff ensures excellent customer service
+        and a welcoming atmosphere, making every dining experience special. With
+        fast delivery services and over 30,000 satisfied customers giving us a
+        4.9-star rating on Google Maps, you can trust that your satisfaction is
+        our top priority. Whether you dine in or order online, Mayur Fine Nepali
+        Restaurant guarantees a meal that feels like home.
+      </p>
+    </div>
+    <script defer>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          console.log(entry);
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+            } else {
+              entry.target.classList.remove("show");
+            }
+        });
+      });
+      const hiddenElements = document.querySelectorAll(".hidden");
+      hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
